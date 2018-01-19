@@ -26,6 +26,10 @@ giphyApp.controller('SearchController', ['$http', function($http){
             self.pagination = self.count-1;
         }
     }
+
+    self.favoriteGif = function(favorite){
+        console.log('Favorited:', favorite);  
+    }
 }]);
 
 giphyApp.controller('RandomController', ['$http', function($http){
@@ -40,5 +44,12 @@ self.randomizeGif = function(){
             self.randomGif = response.data.data;
             console.log(response.data.data);
         })}
-     
+    
+    self.favoriteGif = function(favorite){
+        console.log('Favorited:', favorite);  
+    }
 }]);
+
+giphyApp.controller('FavoriteController', function(){
+
+})
