@@ -9,9 +9,23 @@ giphyApp.controller('SearchController', ['$http', function($http){
         }
         $http.get('http://api.giphy.com/v1/gifs/search', config)
         .then(function(response){
+            self.pagination = response.data.pagination.offset;
+            self.count = response.data.pagination.count;
             self.searchedGif = response.data.data;
-            console.log(response.data.data);
+            console.log(self.pagination, self.searchedGif);
     })}
+    self.nextGif = function(){
+        self.pagination += 1;
+        if(self.pagination == self.count){
+            self.pagination = 0;
+        }
+    }
+    self.previousGif = function(){
+        self.pagination -= 1;
+        if(self.pagination < 0){
+            self.pagination = self.count-1;
+        }
+    }
 }]);
 
 giphyApp.controller('RandomController', ['$http', function($http){
