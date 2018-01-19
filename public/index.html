@@ -10,11 +10,15 @@
 <body ng-app="giphyApp">
     <h1>Giphy App</h1>
      <div ng-controller="SearchController as vm">
-        <input type="text">
-        <button>Search</button>
+        <input type="text" ng-model="vm.searchText">
+        <button ng-click="vm.searchGif(vm.searchText)">Search</button>
+        <div ng-repeat="search in vm.searchedGif">
+            <img src={{search.images.fixed_height_downsampled.url}}>
+        </div>
     </div>
     <div ng-controller="RandomController as vm">
-        <button>Randomize</button>
+        <button ng-click="vm.randomizeGif()">Randomize</button><br>
+        <img src={{vm.randomGif.image_url}}>
     </div>
 </body>
 </html>
