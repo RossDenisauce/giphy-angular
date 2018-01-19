@@ -46,10 +46,19 @@ self.randomizeGif = function(){
         })}
     
     self.favoriteGif = function(favorite){
+        $http.post('/gifs', favorite)
+        .then(function(response){
+            // self.randomGif = response.data.data;
+            // console.log(response.data.data);
+        })
         console.log('Favorited:', favorite);  
     }
 }]);
 
 giphyApp.controller('FavoriteController', function(){
-
+    self.getFavorites = function(){
+    $http.get('/gifs')
+        .then(function(response){
+            
+        })}
 })

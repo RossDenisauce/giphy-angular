@@ -13,19 +13,19 @@
         <input type="text" ng-model="vm.searchText">
         <button ng-click="vm.searchGif(vm.searchText)">Search</button>
         <div>
-            <img src={{vm.searchedGif[vm.pagination].images.fixed_height_downsampled.url}}>
+            <img ng-src={{vm.searchedGif[vm.pagination].images.fixed_height_downsampled.url}}>
             <button ng-click=vm.favoriteGif(vm.searchedGif[vm.pagination])>Favorite</button><br>
             <button ng-click="vm.previousGif()">Previous</button>
             <button ng-click="vm.nextGif()">Next</button>
         </div>
     </div>
     <div ng-controller="RandomController as vm">
-        <img src={{vm.randomGif.image_url}}>
+        <img ng-src={{vm.randomGif.image_url}}>
         <button ng-click=vm.favoriteGif(vm.randomGif)>Favorite</button><br>
         <button ng-click="vm.randomizeGif()">Randomize</button><br>
     </div>
     <div ng-controller="FavoriteController as vm">
-
+        <button ng-click="vm.getFavorites()">Favorites</button>
     </div>
 </body>
 </html>
